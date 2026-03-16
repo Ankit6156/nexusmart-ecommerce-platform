@@ -35,7 +35,7 @@ public class AuthenticationFilter implements Filter {
 
     private static final String ALLOWED_ORIGIN = "http://localhost:5173";
 
-    // 🔓 Public endpoints (NO AUTH REQUIRED)
+    //  Public endpoints (NO AUTH REQUIRED)
     private static final String[] UNAUTHENTICATED_PATHS = {
             "/api/users/register",
             "/api/auth/login",
@@ -65,7 +65,7 @@ public class AuthenticationFilter implements Filter {
         String requestURI = httpRequest.getRequestURI();
         logger.info("Incoming request: {}", requestURI);
 
-        // ✈️ CORS Preflight
+        //  CORS Preflight
         if ("OPTIONS".equalsIgnoreCase(httpRequest.getMethod())) {
             setCORSHeaders(httpResponse);
             return;
@@ -77,7 +77,7 @@ public class AuthenticationFilter implements Filter {
             return;
         }
 
-        // 🔐 Extract JWT from HttpOnly cookie
+        //  Extract JWT from HttpOnly cookie
         String token = getAuthTokenFromCookies(httpRequest);
 
         if (token == null || !authService.validateToken(token)) {
@@ -90,7 +90,7 @@ public class AuthenticationFilter implements Filter {
             return;
         }
 
-        // 🔍 Extract username from JWT
+        //  Extract username from JWT
         String username = authService.extractUsername(token);
 
         Optional<User> userOptional =
@@ -112,7 +112,7 @@ public class AuthenticationFilter implements Filter {
         logger.info("Authenticated user: {}, role: {}",
                 authenticatedUser.getUsername(), role);
 
-        // 🔒 Role-based authorization
+        // Role-based authorization
         if (requestURI.startsWith("/admin/")
                 && role != Role.ADMIN) {
 
@@ -137,13 +137,13 @@ public class AuthenticationFilter implements Filter {
             return;
         }
 
-        // 🎫 Attach authenticated user to request
+        //  Attach authenticated user to request
         httpRequest.setAttribute("authenticatedUser", authenticatedUser);
 
         chain.doFilter(request, response);
     }
 
-    // 🍪 Extract JWT from cookie
+    //  Extract JWT from cookie
     private String getAuthTokenFromCookies(HttpServletRequest request) {
 
         Cookie[] cookies = request.getCookies();
@@ -159,7 +159,7 @@ public class AuthenticationFilter implements Filter {
                 .orElse(null);
     }
 
-    // 🌐 CORS Headers
+    //  CORS Headers
     private void setCORSHeaders(HttpServletResponse response) {
         response.setHeader("Access-Control-Allow-Origin", ALLOWED_ORIGIN);
         response.setHeader("Access-Control-Allow-Methods",
@@ -169,7 +169,7 @@ public class AuthenticationFilter implements Filter {
         response.setHeader("Access-Control-Allow-Credentials", "true");
     }
 
-    // ❌ Error Response (JSON)
+    //  Error Response (JSON)
     private void sendErrorResponse(HttpServletResponse response,
                                    int statusCode,
                                    String message) throws IOException {
