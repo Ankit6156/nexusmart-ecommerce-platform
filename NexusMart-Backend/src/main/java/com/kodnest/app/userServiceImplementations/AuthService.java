@@ -52,7 +52,7 @@ public class AuthService implements AuthServiceContract {
         this.mailSender =  mailSender;
         this.passwordEncoder = new BCryptPasswordEncoder();
 
-        // 🔐 HS512 requires at least 64 bytes
+        //  HS512 requires at least 64 bytes
         if (jwtSecret.getBytes(StandardCharsets.UTF_8).length < 64) {
             throw new IllegalArgumentException(
                 "jwt.secret must be at least 64 bytes for HS512"
@@ -64,7 +64,7 @@ public class AuthService implements AuthServiceContract {
         );
     }
 
-    // 🔐 AUTHENTICATION
+    //  AUTHENTICATION
     @Transactional
     @Override
     public User authenticate(String username, String password) {
@@ -77,7 +77,7 @@ public class AuthService implements AuthServiceContract {
             throw new RuntimeException("Invalid username or password");
         }
 
-        // ❌ Remove old OTP if exists
+        //  Remove old OTP if exists
         otpRepository.deleteByUser(user);
         otpRepository.flush(); 
 
@@ -103,7 +103,7 @@ public class AuthService implements AuthServiceContract {
     }
 
 
-    // 🔑 TOKEN HANDLING (reuse if valid)
+    //  TOKEN HANDLING (reuse if valid)
     @Override
     public String generateToken(User user) {
 
@@ -128,7 +128,7 @@ public class AuthService implements AuthServiceContract {
         return newToken;
     }
 
-    // 🔄 CREATE NEW JWT
+    //  CREATE NEW JWT
     @Override
     public String generateNewToken(User user) {
 
@@ -143,7 +143,7 @@ public class AuthService implements AuthServiceContract {
                 .compact();
     }
 
-    // 💾 SAVE TOKEN
+    //  SAVE TOKEN
     @Override
     public void saveToken(User user, String token) {
 
@@ -183,7 +183,7 @@ public class AuthService implements AuthServiceContract {
 	    String token = generateNewToken(user);
 	    saveToken(user, token);
 
-	    // 🍪 Set cookie
+	    //  Set cookie
 	    Cookie cookie = new Cookie("authToken", token);
 	    cookie.setHttpOnly(true);
 	    cookie.setSecure(false); // true in production (HTTPS)
@@ -192,13 +192,13 @@ public class AuthService implements AuthServiceContract {
 
 	    response.addCookie(cookie);
 
-	    // ❌ Remove OTP after success
+	    //  Remove OTP after success
 	    otpRepository.delete(ref);
 
 	    return user;
 	}
 	
-	// 🔐 SEND OTP FOR FORGOT PASSWORD
+	//  SEND OTP FOR FORGOT PASSWORD
     @Transactional
 	@Override
 	public void sendForgotPasswordOtp(String username) {
@@ -253,7 +253,7 @@ public class AuthService implements AuthServiceContract {
 
 	
 
-	// 🔁 RESET PASSWORD
+	//  RESET PASSWORD
 	@Override
 	public void resetPassword(String username, String newPassword) {
 
@@ -270,7 +270,7 @@ public class AuthService implements AuthServiceContract {
 	    user.setPassword(passwordEncoder.encode(newPassword));
 	    userRepository.save(user);
 
-	    // ❌ Remove OTP after reset
+	    //  Remove OTP after reset
 	    otpRepository.delete(ref);
 	}
 
