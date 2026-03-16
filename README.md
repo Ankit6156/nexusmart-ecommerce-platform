@@ -1,3 +1,10 @@
+![Java](https://img.shields.io/badge/Java-17-orange)
+![Spring Boot](https://img.shields.io/badge/SpringBoot-Backend-green)
+![React](https://img.shields.io/badge/React-Frontend-blue)
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
+![JWT](https://img.shields.io/badge/JWT-Security-yellow)
+![Razorpay](https://img.shields.io/badge/Razorpay-Payment-purple)
+
 # NexusMart – Full Stack E-Commerce Platform
 
 NexusMart is a full stack e-commerce application built using **Java Spring Boot, React.js, and MySQL**.
