@@ -1,0 +1,283 @@
+/* ---------- PAGE BACKGROUND ---------- */
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+ background: linear-gradient(
+  135deg,
+  #bff3ea,
+  #8ee3e7,
+  #6fd6e3
+);
+
+
+}
+
+.landing {
+  min-height: calc(100vh - 120px);
+}
+
+/* ---------- LAYOUT ---------- */
+.landing {
+  min-height: 100vh;
+  display: flex;
+  padding: 40px 60px;
+  gap: 40px;
+  box-sizing: border-box;
+}
+
+.left {
+  flex: 1;
+  padding-top: 60px;
+}
+
+.left h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: #0f172a;
+}
+
+.left p {
+  font-size: 20px;
+  color: #475569;
+  max-width: 420px;
+}
+
+/* ---------- PHONE CONTAINER ---------- */
+.phones {
+  flex: 1.5;
+  display: flex;
+  gap: 36px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- PHONE FRAME ---------- */
+.phone {
+  width: 270px;
+  height: 540px;
+  background: #ffffff;
+  border-radius: 36px;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 6px #000;
+  overflow: hidden;
+  position: relative;
+  transform: scale(0.92);
+  opacity: 0.55;
+  transition: all 0.45s ease;
+}
+
+/* Active phone */
+.phone.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ---------- NOTCH ---------- */
+.phone::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 26px;
+  background: #000;
+  border-radius: 0 0 14px 14px;
+  z-index: 10;
+}
+
+/* ---------- SCREEN ---------- */
+.screen {
+  height: 100%;
+  padding: 60px 18px 24px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* ---------- HEADINGS ---------- */
+.screen h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+/* ---------- INPUTS ---------- */
+.input-group {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.input-group input,
+.screen select {
+  width: 100%;
+  padding: 12px 42px 12px 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5f5;
+  background: #f8fafc;
+  font-size: 14px;
+  outline: none;
+}
+
+/* ---------- TOGGLE ICON ---------- */
+.toggle-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ---------- BUTTONS ---------- */
+.screen button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: #14b8a6;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.screen button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.screen button.link {
+  background: none;
+  color: #14b8a6;
+  font-size: 13px;
+}
+
+/* ---------- OVERLAY (OTP) ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1100px) {
+  .landing {
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .phones {
+    flex-direction: column;
+  }
+
+  .phone {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* INPUT + TOGGLE (FIXED & REQUIRED) */
+
+.input-group {
+  position: relative;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 42px 12px 12px; /* space for toggle icon on right */
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5f5;
+  background: #f8fafc;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.toggle-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+
+/* ---------- FORCE SMALL SCROLL WITHOUT LAYOUT CHANGE ---------- */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  overflow-y: auto;
+}
+
+/* Invisible scroll space */
+body::after {
+  content: "";
+  display: block;
+  height: 120px; /* adjust scroll amount */
+}
+
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* ================= MESSAGES ================= */
+
+.message {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  text-align: center;
+  animation: fadeIn 0.25s ease-in;
+}
+
+/* ❌ Error */
+.message.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* ✅ Success */
+.message.success {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+/* ℹ️ Info */
+.message.info {
+  background: #e0f2fe;
+  color: #075985;
+  border: 1px solid #bae6fd;
+}
+
+/* small animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

@@ -1,0 +1,113 @@
+/* ===== BACKGROUND ===== */
+
+.profile-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2, #ff758c);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* ===== CARD ===== */
+
+.profile-card {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  width: 400px;
+  text-align: center;
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.25),
+    0 0 20px rgba(102,126,234,0.4);
+
+  animation: fadeIn 0.5s ease;
+}
+
+/* ===== BACK BUTTON ===== */
+
+.back-button {
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 15px;
+  float: left;
+}
+
+.back-button:hover {
+  transform: scale(1.05);
+}
+
+/* ===== AVATAR ===== */
+
+.profile-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+
+  border: 4px solid #667eea;
+
+  box-shadow: 0 0 20px rgba(102,126,234,0.6);
+}
+
+/* ===== NAME ===== */
+
+.profile-name {
+  margin: 10px 0;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+/* ===== ROLE BADGE ===== */
+
+.profile-role-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+/* ===== INFO SECTION ===== */
+
+.profile-info {
+  margin-top: 20px;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-row span:first-child {
+  font-weight: 600;
+  color: #555;
+}
+
+.profile-row span:last-child {
+  font-weight: bold;
+  color: #333;
+}
+
+/* ===== ANIMATION ===== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
