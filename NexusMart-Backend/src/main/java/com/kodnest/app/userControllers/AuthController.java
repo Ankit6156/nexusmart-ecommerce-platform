@@ -26,7 +26,7 @@ public class AuthController {
         this.authService = authService;
     }
 
-    // 🔐 STEP 1: LOGIN → SEND OTP
+    //  STEP 1: LOGIN → SEND OTP
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
 
@@ -69,7 +69,7 @@ public class AuthController {
         }
     }
     
- // 🔐 FORGOT PASSWORD → SEND OTP
+ //  FORGOT PASSWORD → SEND OTP
     @PostMapping("/forgot-password")
     public ResponseEntity<?> forgotPassword(@RequestParam String username) {
 
@@ -107,7 +107,7 @@ public class AuthController {
         }
     }
 
-    // 🔁 RESET PASSWORD
+    //  RESET PASSWORD
     @PostMapping("/forgot-password/reset")
     public ResponseEntity<?> resetPassword(
             @RequestParam String username,
