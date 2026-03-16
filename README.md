@@ -5,16 +5,16 @@
 ![JWT](https://img.shields.io/badge/JWT-Security-yellow)
 ![Razorpay](https://img.shields.io/badge/Razorpay-Payment-purple)
 
-# NexusMart – Full Stack E-Commerce Platform
+# 🛒 NexusMart – Full Stack E-Commerce Platform
 
 NexusMart is a full stack e-commerce application built using **Java Spring Boot, React.js, and MySQL**.
 The platform provides a complete online shopping experience with secure authentication, OTP verification, product management, order processing, and payment integration.
 
 ---
 
-## Tech Stack
+# 🚀 Tech Stack
 
-### Backend
+## Backend
 
 * Java
 * Spring Boot
@@ -25,7 +25,7 @@ The platform provides a complete online shopping experience with secure authenti
 * RESTful APIs
 * MySQL
 
-### Frontend
+## Frontend
 
 * React.js
 * Vite
@@ -33,15 +33,15 @@ The platform provides a complete online shopping experience with secure authenti
 * CSS3
 * JavaScript
 
-### Payment Integration
+## Payment Integration
 
 * Razorpay REST API
 
 ---
 
-## Key Features
+# ✨ Key Features
 
-### User Features
+## User Features
 
 * User Registration & Login
 * OTP verification for secure login/registration
@@ -53,7 +53,7 @@ The platform provides a complete online shopping experience with secure authenti
 * Order history tracking
 * Profile management
 
-### Admin Features
+## Admin Features
 
 * Admin login
 * Add new products
@@ -65,7 +65,7 @@ The platform provides a complete online shopping experience with secure authenti
 
 ---
 
-## Business Analytics
+# 📊 Business Analytics
 
 Admin dashboard provides revenue insights:
 
@@ -76,7 +76,7 @@ Admin dashboard provides revenue insights:
 
 ---
 
-## Security Features
+# 🔐 Security Features
 
 * JWT Token Authentication
 * OTP Verification for login/registration
@@ -85,31 +85,35 @@ Admin dashboard provides revenue insights:
 
 ---
 
-## System Architecture
+# 🏗 System Architecture
 
+```
 User
-│
-▼
+ │
+ ▼
 React Frontend
-│
-▼
+ │
+ ▼
 Spring Boot REST APIs
-│
-├── JWT Authentication
-├── OTP Verification
-├── Business Logic (Services)
-│
-▼
+ │
+ ├── JWT Authentication
+ ├── OTP Verification
+ ├── Business Logic (Services)
+ │
+ ▼
 MySQL Database
-│
-▼
+ │
+ ▼
 Razorpay Payment Gateway
+```
 
 ---
 
-## Backend Architecture
+# ⚙ Backend Architecture
 
+```
 Controller → Service → Repository → Database
+```
 
 Main components include:
 
@@ -122,7 +126,7 @@ Main components include:
 
 ---
 
-## Project Structure
+# 📁 Project Structure
 
 ```
 NexusMart-Ecommerce-Platform
@@ -143,9 +147,9 @@ NexusMart-Ecommerce-Platform
 
 ---
 
-## API Highlights
+# 🔗 API Highlights
 
-### Authentication APIs
+## Authentication APIs
 
 * POST `/api/auth/login` – User login
 * GET `/api/auth/verify` – Verify JWT token
@@ -156,20 +160,20 @@ NexusMart-Ecommerce-Platform
 
 ---
 
-### User APIs
+## User APIs
 
 * POST `/api/users/register` – Register new user
 * GET `/api/users/profile` – Get user profile
 
 ---
 
-### Product APIs
+## Product APIs
 
 * GET `/api/products` – Get all products
 
 ---
 
-### Cart APIs
+## Cart APIs
 
 * POST `/api/cart/add` – Add product to cart
 * GET `/api/cart/items` – Get cart items
@@ -179,34 +183,34 @@ NexusMart-Ecommerce-Platform
 
 ---
 
-### Order APIs
+## Order APIs
 
 * GET `/api/orders` – Get user orders
 
 ---
 
-### Payment APIs
+## Payment APIs
 
 * POST `/api/payment/create` – Create Razorpay order
 * POST `/api/payment/verify` – Verify payment
 
 ---
 
-### Admin Product APIs
+## Admin Product APIs
 
 * POST `/admin/products/add` – Add new product
 * DELETE `/admin/products/delete` – Delete product
 
 ---
 
-### Admin User APIs
+## Admin User APIs
 
 * PUT `/admin/user/modify` – Modify user details
 * GET `/admin/user/getbyid/{userId}` – Get user by ID
 
 ---
 
-### Admin Business Analytics APIs
+## Admin Business Analytics APIs
 
 * GET `/admin/business/daily` – Daily revenue
 * GET `/admin/business/monthly` – Monthly revenue
@@ -215,7 +219,7 @@ NexusMart-Ecommerce-Platform
 
 ---
 
-## Security
+# 🔐 Security
 
 The application uses multiple layers of security:
 
@@ -227,7 +231,7 @@ The application uses multiple layers of security:
 
 ---
 
-## Future Improvements
+# 🔮 Future Improvements
 
 * Product reviews and ratings
 * Email notifications
@@ -237,8 +241,7 @@ The application uses multiple layers of security:
 
 ---
 
-## Author
+# 👨‍💻 Author
 
 **Ankit Kumar**
 Java Full Stack Developer
-
